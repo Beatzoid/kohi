@@ -10,7 +10,7 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/bin/",
             "environment": [],
-            "console":"newExternalWindow",
+            "console": "newExternalWindow"
         },
         {
             "name": "(Linux) Launch",
@@ -20,7 +20,7 @@
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/bin/",
-            "environment": [],
+            "environment": []
         }
     ]
 }

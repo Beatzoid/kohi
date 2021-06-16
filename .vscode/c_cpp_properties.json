@@ -15,13 +15,13 @@
             "compilerPath": "/usr/bin/clang-12",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "linux-clang-x86"
         },
         {
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/engine/src/**",
-                "${VULKAN_SDK}/include"
+                "/home/beatzoid/vulkan/1.2.176.1/x86_64/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -33,8 +33,17 @@
             "compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "windows-clang-x86",
+            "compilerArgs": [],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/engine/src/**",
+                    "/home/beatzoid/vulkan/1.2.176.1/x86_64/include",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
         }
     ],
     "version": 4
-} 
+}

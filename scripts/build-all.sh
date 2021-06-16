@@ -1,8 +1,13 @@
 #!/bin/bash
 # Build script for rebuilding everything
 set echo on
+echo $CI
 
-source /home/beatzoid/vulkan/1.2.176.1/setup-env.sh
+if [ -z $CI ]; then
+    echo "CI = false"
+    source /home/beatzoid/vulkan/1.2.176.1/setup-env.sh
+fi
+
 echo "Building everything..."
 
 

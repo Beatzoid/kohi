@@ -183,7 +183,7 @@ b8 platform_pump_messages(platform_state *plat_state)
     // Simply cold-cast to the known type.
     internal_state *state = (internal_state *)plat_state->internal_state;
 
-    xcb_generic_event_t *event;
+    xcb_generic_event_t *event = NULL;
     xcb_client_message_event_t *cm;
 
     b8 quit_flagged = FALSE;

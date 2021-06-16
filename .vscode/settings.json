@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "logger.h": "c",
-        "asserts.h": "c"
+        "asserts.h": "c",
+        "cstring": "c",
+        "platform.h": "c",
+        "stdlib.h": "c"
     }
 }

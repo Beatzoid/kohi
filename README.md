@@ -14,7 +14,7 @@ This is a very complicated setup process that will take time and patience.
 
 [Linux Setup](https://www.youtube.com/watch?v=NIv1mygBOcg&list=PLv8Ddw9K0JPg1BEO-RS-0MYs423cvLVtj&index=4)
 
-If your using linux, you need to change [scripts/build-all.sh](scripts/build-all.sh) line #5 to source the setup-env.sh file you downloaded
+If your using linux, you need to change [scripts/build-all.sh](scripts/build-all.sh) line #8 to source the setup-env.sh file you downloaded
 
 Once you have done all of the above, simply clone this project, open it in vscode, press control/command + shift + b to build the entire project, and press F5 to start running the project. Make sure to choose the right OS in the window on the sidebar.
 

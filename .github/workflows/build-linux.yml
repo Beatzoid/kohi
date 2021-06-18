@@ -22,7 +22,7 @@ jobs:
               uses: egor-tensin/setup-clang@v1
 
             - name: Install Additional Dependencies
-              run: sudo apt-get install libx11-dev libxkbcommon-x11-dev libxcb-res0-dev
+              run: sudo apt-get install libx11-dev libx11-xcb-dev libxkbcommon-x11-dev libxcb-res0-dev
 
             - name: Build Linux
               run: cd scripts && chmod +x ./build-all.sh && ./build-all.sh

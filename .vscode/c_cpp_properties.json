@@ -6,12 +6,7 @@
                 "${workspaceFolder}/engine/src/**",
                 "${VULKAN_SDK}/include"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE",
-                "KEXPORT"
-            ],
+            "defines": ["_DEBUG", "UNICODE", "_UNICODE", "KEXPORT"],
             "compilerPath": "/usr/bin/clang-12",
             "cStandard": "c17",
             "cppStandard": "c++17",
@@ -23,12 +18,7 @@
                 "${workspaceFolder}/engine/src/**",
                 "/home/beatzoid/vulkan/1.2.176.1/x86_64/include"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE",
-                "KEXPORT"
-            ],
+            "defines": ["_DEBUG", "UNICODE", "_UNICODE", "KEXPORT"],
             "windowsSdkVersion": "10.0.18362.0",
             "compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
             "cStandard": "c17",

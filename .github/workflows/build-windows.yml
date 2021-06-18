@@ -1,21 +1,20 @@
-# Doesn't work until https://github.com/humbletim/setup-vulkan-sdk/issues/2 gets fixed
-# name: Build Windows
+name: Build Windows
 
-# on:
-#     push:
-#         branches: [master]
-#     pull_request:
-#         branches: [master]
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
 
-# jobs:
-#     build:
-#         runs-on: windows-latest
+jobs:
+    build:
+        runs-on: windows-latest
 
-#         steps:
-#             - uses: actions/checkout@v2
-#             - name: Install Vulkan SDK
-#               uses: humbletim/setup-vulkan-sdk@v1.0.1
-#               with:
-#                   vulkan-version: 1.2.176.1
-#             - name: Build Windows
-#               run: cd scripts && ./build-all.bat
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install Vulkan SDK
+              uses: humbletim/setup-vulkan-sdk@v1.0.1
+              with:
+                  vulkan-version: 1.2.176.0
+            - name: Build Windows
+              run: cd scripts && ./build-all.bat

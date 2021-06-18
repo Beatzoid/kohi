@@ -1,22 +1,22 @@
-REM @ECHO OFF
+@ECHO OFF
 REM Build Everything
 
 ECHO "Building everything..."
-ECHO %CI%
 
 IF "%CI%" == "true" (
-    PUSHD ../engine 
-    CALL scripts/build.bat 
+    PUSHD ../engine/scripts
+    CALL build.bat 
     POPD
 ) else (
-    PUSHD engine
-    CALL scripts/build.bat
+    PUSHD engine/scripts
+    CALL build.bat
     POPD
-    IF %ERRORLEVEL% NEQ 0 (echo Error:%ERRORLEVEL% && exit)
 )
 
-PUSHD testbed
-CALL scripts/build.bat
+IF %ERRORLEVEL% NEQ 0 (echo Error:%ERRORLEVEL% && exit)
+
+PUSHD testbed/scripts
+CALL build.bat
 POPD
 IF %ERRORLEVEL% NEQ 0 (echo Error:%ERRORLEVEL% && exit)
 

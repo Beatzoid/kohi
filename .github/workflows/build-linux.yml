@@ -17,6 +17,6 @@ jobs:
               with:
                   vulkan-version: 1.2.170.0
             - name: Install Additional Dependencies
-              run: sudo apt-get install libx11-dev libxkbcommon-x11-dev
+              run: sudo apt-get install libx11-dev libxkbcommon-x11-dev libxcb-res0-dev
             - name: Build Linux
               run: cd scripts && chmod +x ./build-all.sh && ./build-all.sh

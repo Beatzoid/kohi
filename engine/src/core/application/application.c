@@ -5,6 +5,7 @@
 #include "core/logger/logger.h"
 #include "core/kmemory/kmemory.h"
 #include "core/event/event.h"
+#include "core/input/input.h"
 
 typedef struct application_state
 {
@@ -32,14 +33,14 @@ b8 application_create(game *game_inst)
 
     // Initialize subsystems.
     initialize_logging();
+    initialize_input();
 
-    // TODO: Remove These
-    KFATAL("A test message: %f", 3.14f);
-    KERROR("A test message: %f", 3.14f);
-    KWARN("A test message: %f", 3.14f);
-    KINFO("A test message: %f", 3.14f);
-    KDEBUG("A test message: %f", 3.14f);
-    KTRACE("A test message: %f", 3.14f);
+    // KFATAL("A test message: %f", 3.14f);
+    // KERROR("A test message: %f", 3.14f);
+    // KWARN("A test message: %f", 3.14f);
+    // KINFO("A test message: %f", 3.14f);
+    // KDEBUG("A test message: %f", 3.14f);
+    // KTRACE("A test message: %f", 3.14f);
 
     app_state.is_running = TRUE;
     app_state.is_suspended = FALSE;
@@ -102,12 +103,19 @@ b8 application_run()
                 app_state.is_running = FALSE;
                 break;
             }
+
+            // NOTE: Input update/state copying should always be handled
+            // after any input should be recorded; I.E. before this line.
+            // As a safety, input is the last thing to be updated before
+            // this frame ends.
+            input_update(0);
         }
     }
 
     app_state.is_running = FALSE;
 
     event_shutdown();
+    input_shutdown();
 
     platform_shutdown(&app_state.platform);
 

@@ -4,7 +4,7 @@ REM Build Everything
 ECHO "Building everything..."
 
 IF "%CI%" == "true" (
-    PUSHD ../engine/scripts
+    PUSHD "../engine/scripts"
     CALL build.bat 
     POPD
 ) else (
@@ -15,9 +15,16 @@ IF "%CI%" == "true" (
 
 IF %ERRORLEVEL% NEQ 0 (echo Error:%ERRORLEVEL% && exit)
 
-PUSHD testbed/scripts
-CALL build.bat
-POPD
+IF "%CI%" == "true" (
+    PUSHD "../testbed/scripts"
+    CALL build.bat 
+    POPD
+) else (
+    PUSHD testbed/scripts
+    CALL build.bat
+    POPD
+)
+
 IF %ERRORLEVEL% NEQ 0 (echo Error:%ERRORLEVEL% && exit)
 
 ECHO "All assemblies built successfully."

@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "platform.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "renderer_frontend.h": "c"
     }
 }

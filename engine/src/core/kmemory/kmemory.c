@@ -2,6 +2,7 @@
 
 #include "core/logger/logger.h"
 #include "core/platform/platform.h"
+#include "core/kstring/kstring.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -123,6 +124,6 @@ char *get_memory_usage_str()
         offset += length;
     }
 
-    char *out_string = strdup(buffer);
+    char *out_string = string_duplicate(buffer);
     return out_string;
 }

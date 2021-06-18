@@ -15,6 +15,6 @@ jobs:
             - name: Install Vulkan SDK
               uses: humbletim/setup-vulkan-sdk@v1.0.1
               with:
-                  vulkan-version: 1.2.176.0
+                  vulkan-version: 1.2.170.0
             - name: Build Linux
               run: cd scripts && chmod +x ./build-all.sh && ./build-all.sh

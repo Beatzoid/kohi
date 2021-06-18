@@ -13,10 +13,16 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install Vulkan SDK
+
               uses: humbletim/setup-vulkan-sdk@v1.0.1
               with:
                   vulkan-version: 1.2.170.0
+
+            - name: Set up Clang
+              uses: egor-tensin/setup-clang@v1
+
             - name: Install Additional Dependencies
               run: sudo apt-get install libx11-dev libxkbcommon-x11-dev libxcb-res0-dev
+
             - name: Build Linux
               run: cd scripts && chmod +x ./build-all.sh && ./build-all.sh

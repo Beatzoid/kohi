@@ -10,8 +10,11 @@ fi
 
 echo "Building everything..."
 
-
-cd engine
+if [ -z $CI ]; then
+    cd engine
+else
+    cd ../engine
+fi
 source scripts/build.sh
 cd ../
 

@@ -11,9 +11,9 @@ fi
 echo "Building everything..."
 
 
-pushd engine
+cd engine
 source scripts/build.sh
-popd
+cd ../
 
 ERRORLEVEL=$?
 if [ $ERRORLEVEL -ne 0 ]
@@ -21,9 +21,10 @@ then
 echo "Error:"$ERRORLEVEL && exit
 fi
 
-pushd testbed
+cd testbed
 source scripts/build.sh
-popd
+cd ../
+
 ERRORLEVEL=$?
 if [ $ERRORLEVEL -ne 0 ]
 then

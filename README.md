@@ -20,7 +20,7 @@ Once you have done all of the above, simply clone this project, open it in vscod
 
 # MacOS
 
-I don't have a Mac to test on so Mac support won't be avalible. If you have a Mac and you would be willing to test and port this to Mac, I would be very grateful.
+I don't have a Mac to test on so Mac support won't be available. If you have a Mac and you would be willing to test and port this to Mac, I would be very grateful.
 
 # Credit
 

@@ -27,16 +27,16 @@ KAPI void report_assertion_failure(const char *expression, const char *message, 
         }                                                            \
     }
 
-#define KASSERT_MSG(expr, message)                                   \
-    {                                                                \
-        if (expr)                                                    \
-        {                                                            \
-        }                                                            \
-        else                                                         \
-        {                                                            \
-            report_assertion_failure(#expr, "", __FILE__, __LINE__); \
-            debugBreak();                                            \
-        }                                                            \
+#define KASSERT_MSG(expr, message)                                        \
+    {                                                                     \
+        if (expr)                                                         \
+        {                                                                 \
+        }                                                                 \
+        else                                                              \
+        {                                                                 \
+            report_assertion_failure(#expr, message, __FILE__, __LINE__); \
+            debugBreak();                                                 \
+        }                                                                 \
     }
 
 #ifndef _DEBUG

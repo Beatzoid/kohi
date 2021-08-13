@@ -2,10 +2,7 @@
     "configurations": [
         {
             "name": "Linux",
-            "includePath": [
-                "${workspaceFolder}/engine/src/**",
-                "${VULKAN_SDK}/include"
-            ],
+            "includePath": ["${workspaceFolder}/**", "${VULKAN_SDK}/include"],
             "defines": ["_DEBUG", "UNICODE", "_UNICODE", "KEXPORT"],
             "compilerPath": "/usr/bin/clang-12",
             "cStandard": "c17",

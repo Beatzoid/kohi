@@ -26,8 +26,8 @@ typedef enum memory_tag
     MEMORY_TAG_MAX_TAGS
 } memory_tag;
 
-void intialize_memory();
-void shutdown_memory();
+KAPI void intialize_memory();
+KAPI void shutdown_memory();
 
 KAPI void *kallocate(u64 size, memory_tag tag);
 

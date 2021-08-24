@@ -2,6 +2,10 @@
     "files.associations": {
         "platform.h": "c",
         "string.h": "c",
-        "renderer_frontend.h": "c"
+        "renderer_frontend.h": "c",
+        "vulkan_win32.h": "c",
+        "vulkan_device.h": "c",
+        "vulkan_types.inl": "c",
+        "vulkan.h": "c"
     }
 }

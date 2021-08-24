@@ -2,34 +2,28 @@
     "configurations": [
         {
             "name": "Linux",
-            "includePath": ["${workspaceFolder}/**", "${VULKAN_SDK}/include"],
+            "includePath": [
+                "${workspaceFolder}/engine/src/**",
+                "${VULKAN_SDK}/include"
+            ],
             "defines": ["_DEBUG", "UNICODE", "_UNICODE", "KEXPORT"],
-            "compilerPath": "/usr/bin/clang-12",
+            "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-clang-x86"
+            "intelliSenseMode": "clang-x64"
         },
         {
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/engine/src/**",
-                "/home/beatzoid/vulkan/1.2.176.1/x86_64/include"
+                "${VULKAN_SDK}/include"
             ],
             "defines": ["_DEBUG", "UNICODE", "_UNICODE", "KEXPORT"],
             "windowsSdkVersion": "10.0.18362.0",
             "compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-clang-x86",
-            "compilerArgs": [],
-            "browse": {
-                "path": [
-                    "${workspaceFolder}/engine/src/**",
-                    "/home/beatzoid/vulkan/1.2.176.1/x86_64/include",
-                    "${workspaceFolder}"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            }
+            "intelliSenseMode": "clang-x64"
         }
     ],
     "version": 4

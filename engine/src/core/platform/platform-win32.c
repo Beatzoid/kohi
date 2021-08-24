@@ -2,18 +2,23 @@
 
 #if KPLATFORM_WINDOWS
 
-#include "logger/logger.h"
-#include "input/input.h"
-#include "containers/darray/darray.h"
+#include "core/logger/logger.h"
+#include "core/input/input.h"
+#include "core/containers/darray/darray.h"
 
 #include <windows.h>
 #include <windowsx.h>
 #include <stdlib.h>
 
+#include <vulkan/vulkan.h>
+#include <vulkan/vulkan_win32.h>
+#include "core/renderer/vulkan/vulkan_types.inl"
+
 typedef struct internal_state
 {
     HINSTANCE h_instance;
-    HWND hwnd
+    HWND hwnd;
+    VkSurfaceKHR surface;
 } internal_state;
 
 static f64 clock_frequency;
@@ -169,7 +174,7 @@ void platform_console_write(const char *message, u8 color)
     HANDLE console_handle = GetStdHandle(STD_OUTPUT_HANDLE);
     // FATAL,ERROR,WARN,INFO,DEBUG,TRACE
     static u8 levels[6] = {64, 4, 6, 2, 1, 8};
-    SetConsoleTextAttribute(console_handle, levels[colour]);
+    SetConsoleTextAttribute(console_handle, levels[color]);
 
     OutputDebugStringA(message);
     u64 length = strlen(message);
@@ -205,6 +210,25 @@ void platform_sleep(u64 ms)
 void platform_get_required_extension_names(const char ***names_darray)
 {
     darray_push(*names_darray, &"VK_KHR_win32_surface");
+}
+
+b8 platform_create_vulkan_surface(struct platform_state *plat_state, struct vulkan_context *context)
+{
+    internal_state *state = (internal_state *)plat_state->internal_state;
+
+    VkWin32SurfaceCreateInfoKHR create_info = {VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR};
+    create_info.hinstance = state->h_instance;
+    create_info.hwnd = state->hwnd;
+
+    VkResult result = vkCreateWin32SurfaceKHR(context->instance, &create_info, context->allocator, &state->surface);
+    if (result != VK_SUCCESS)
+    {
+        KFATAL("Vulkan surface creation failed!");
+        return FALSE;
+    }
+
+    context->surface = state->surface;
+    return TRUE;
 }
 
 LRESULT CALLBACK win32_process_message(HWND hwnd, u32 msg, WPARAM w_param, LPARAM l_param)
@@ -243,7 +267,7 @@ LRESULT CALLBACK win32_process_message(HWND hwnd, u32 msg, WPARAM w_param, LPARA
         // Key pressed/released
         b8 pressed = (msg == WM_KEYDOWN || msg == WM_SYSKEYDOWN);
         keys key = (u16)w_param;
-        input_process_key(keys, pressed);
+        input_process_key(key, pressed);
     }
     break;
 

@@ -1,6 +1,7 @@
 #include "vulkan_backend.h"
 #include "vulkan_types.inl"
 #include "vulkan_platform.h"
+#include "vulkan_device.h"
 
 #include "core/logger/logger.h"
 #include "core/kstring/kstring.h"
@@ -47,7 +48,7 @@ b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *app
     }
 #endif
 
-    create_info.enabledExtensionCount = 0;
+    create_info.enabledExtensionCount = darray_length(required_extensions);
     create_info.ppEnabledExtensionNames = required_extensions;
 
     // Validation layers
@@ -70,6 +71,7 @@ b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *app
     VK_CHECK(vkEnumerateInstanceLayerProperties(&avalible_layer_count, 0));
     VkLayerProperties *avalible_layers = darray_reserve(VkLayerProperties, avalible_layer_count);
     VK_CHECK(vkEnumerateInstanceLayerProperties(&avalible_layer_count, avalible_layers));
+    KDEBUG((const char *)avalible_layers);
 
     // Verifiy all validation layers are available
     for (u32 i = 0; i < required_validation_layer_count; ++i)
@@ -89,6 +91,7 @@ b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *app
         if (!found)
         {
             KFATAL("Required validation layer is missing: %s", required_validation_layer_names[i]);
+            return FALSE;
         }
     }
 
@@ -97,6 +100,9 @@ b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *app
 
     create_info.enabledLayerCount = required_validation_layer_count;
     create_info.ppEnabledLayerNames = required_validation_layer_names;
+
+    VK_CHECK(vkCreateInstance(&create_info, context.allocator, &context.instance));
+    KINFO("Vulkan instance created");
 
     // Debugger
 #if defined(_DEBUG)
@@ -113,12 +119,25 @@ b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *app
 
     PFN_vkCreateDebugUtilsMessengerEXT func =
         (PFN_vkCreateDebugUtilsMessengerEXT)vkGetInstanceProcAddr(context.instance, "vkCreateDebugUtilsMessengerEXT");
+    KASSERT_MSG(func, "Failed to create debug messenger!");
 
+    VK_CHECK(func(context.instance, &debug_create_info, context.allocator, &context.debug_messenger));
     KDEBUG("Vulkan debugger created.");
 #endif
 
-    VK_CHECK(vkCreateInstance(&create_info, context.allocator, &context.instance));
-    KINFO("Vulkan instance created");
+    KDEBUG("Creating Vulkan surface...");
+    if (!platform_create_vulkan_surface(plat_state, &context))
+    {
+        KERROR("Failed to create platform surface!");
+        return FALSE;
+    }
+    KDEBUG("Vulkan surface created")
+
+    if (!vulkan_device_create(&context))
+    {
+        KERROR("Failed to create device!");
+        return FALSE;
+    }
 
     // Free up some memory (like 5kb lol but whatever)
     darray_destroy(avalible_layers);

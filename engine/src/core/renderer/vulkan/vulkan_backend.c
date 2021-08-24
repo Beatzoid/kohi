@@ -159,6 +159,7 @@ void vulkan_renderer_backend_shutdown(renderer_backend *backend)
     }
 
     KDEBUG("Destroying Vulkan instance...");
+    vkDestroySurfaceKHR(context.instance, context.surface, context.allocator);
     vkDestroyInstance(context.instance, context.allocator);
 }
 

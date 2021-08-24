@@ -5,11 +5,11 @@ ECHO "Building everything..."
 
 
 IF "%CI%" == "true" (
-    PUSHD "../engine/scripts"
+    PUSHD "../engine"
     CALL build.bat 
     POPD
 ) else (
-    PUSHD engine/scripts
+    PUSHD engine
     CALL build.bat
     POPD
 )
@@ -17,11 +17,11 @@ IF "%CI%" == "true" (
 IF %ERRORLEVEL% NEQ 0 (echo Error:%ERRORLEVEL% && exit)
 
 IF "%CI%" == "true" (
-    PUSHD "../testbed/scripts"
+    PUSHD "../testbed"
     CALL build.bat 
     POPD
 ) else (
-    PUSHD testbed/scripts
+    PUSHD testbed
     CALL build.bat
     POPD
 )

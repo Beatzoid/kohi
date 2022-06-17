@@ -6,6 +6,12 @@
         "vulkan_win32.h": "c",
         "vulkan_device.h": "c",
         "vulkan_types.inl": "c",
-        "vulkan.h": "c"
+        "vulkan.h": "c",
+        "application.h": "c",
+        "asserts.h": "c",
+        "intrin.h": "c",
+        "darray.h": "c",
+        "event.h": "c",
+        "windows.h": "c"
     }
 }

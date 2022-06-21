@@ -3,6 +3,7 @@
 #include "vulkan_platform.h"
 #include "vulkan_device.h"
 #include "vulkan_swapchain.h"
+#include "vulkan_renderpass.h"
 
 #include "core/logger/logger.h"
 #include "core/kstring/kstring.h"
@@ -150,6 +151,14 @@ b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *app
         context.framebuffer_height,
         &context.swapchain);
 
+    vulkan_renderpass_create(
+        &context,
+        &context.main_renderpass,
+        0, 0, context.framebuffer_width, context.framebuffer_height,
+        0.0f, 0.0f, 0.2f, 1.0f,
+        1.0f,
+        0);
+
     // Free up some memory (like 5kb lol but whatever)
     darray_destroy(avalible_layers);
     darray_destroy(required_validation_layer_names);
@@ -161,6 +170,9 @@ b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *app
 
 void vulkan_renderer_backend_shutdown(renderer_backend *backend)
 {
+    KDEBUG("Destryoing renderpass");
+    vulkan_renderpass_destroy(&context, &context.main_renderpass);
+
     KDEBUG("Destroying swapchain");
     vulkan_swapchain_destroy(&context, &context.swapchain);
 

@@ -243,7 +243,6 @@ LRESULT CALLBACK win32_process_message(HWND hwnd, u32 msg, WPARAM w_param, LPARA
     case WM_CLOSE:
         event_context data = {};
         event_fire(EVENT_CODE_APPLICATION_QUIT, 0, data);
-        return TRUE;
         return 0;
 
     case WM_DESTROY:

@@ -90,6 +90,8 @@ void vulkan_swapchain_present(
     {
         KFATAL("Failed to present swapchain image!");
     }
+
+    context->current_frame = (context->current_frame + 1) % swapchain->max_frames_in_flight;
 }
 
 void create(vulkan_context *context, u32 width, u32 height, vulkan_swapchain *swapchain)

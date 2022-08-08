@@ -1,6 +1,6 @@
 #include "logger.h"
-#include "core/asserts/asserts.h"
-#include "core/platform/platform.h"
+#include "core/asserts.h"
+#include "platform/platform.h"
 
 // TODO: Temporary
 #include <stdio.h>

@@ -27,7 +27,7 @@
 
 #define VK_USE_PLATFORM_XCB_KHR
 #include <vulkan/vulkan.h>
-#include "core/renderer/vulkan/vulkan_types.inl"
+#include "renderer/vulkan/vulkan_types.inl"
 
 typedef struct internal_state
 {
@@ -106,12 +106,12 @@ b8 platform_startup(
         XCB_COPY_FROM_PARENT, // depth
         state->window,
         state->screen->root,           // parent
-        x,                             //x
-        y,                             //y
-        width,                         //width
-        height,                        //height
+        x,                             // x
+        y,                             // y
+        width,                         // width
+        height,                        // height
         0,                             // No border
-        XCB_WINDOW_CLASS_INPUT_OUTPUT, //class
+        XCB_WINDOW_CLASS_INPUT_OUTPUT, // class
         state->screen->root_visual,
         event_mask,
         value_list);
@@ -220,7 +220,7 @@ b8 platform_pump_messages(platform_state *plat_state)
             xcb_keycode_t code = kb_event->detail;
             KeySym key_sym = XkbKeycodeToKeysym(
                 state->display,
-                (KeyCode)code, //event.xkey.keycode,
+                (KeyCode)code, // event.xkey.keycode,
                 0,
                 code & ShiftMask ? 1 : 0);
 
@@ -395,8 +395,8 @@ keys translate_keycode(u32 x_keycode)
         return KEY_ENTER;
     case XK_Tab:
         return KEY_TAB;
-        //case XK_Shift: return KEY_SHIFT;
-        //case XK_Control: return KEY_CONTROL;
+        // case XK_Shift: return KEY_SHIFT;
+        // case XK_Control: return KEY_CONTROL;
 
     case XK_Pause:
         return KEY_PAUSE;

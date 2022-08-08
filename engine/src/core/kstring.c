@@ -1,5 +1,5 @@
 #include "kstring.h"
-#include "core/kmemory/kmemory.h"
+#include "core/kmemory.h"
 
 #include <string.h>
 

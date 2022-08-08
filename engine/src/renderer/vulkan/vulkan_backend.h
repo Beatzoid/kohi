@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/renderer/renderer_backend.h"
+#include "renderer/renderer_backend.h"
 
 b8 vulkan_renderer_backend_initialize(renderer_backend *backend, const char *application_name, struct platform_state *plat_state);
 void vulkan_renderer_backend_shutdown(renderer_backend *backend);

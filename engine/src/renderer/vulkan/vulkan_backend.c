@@ -8,11 +8,11 @@
 #include "vulkan_framebuffer.h"
 #include "vulkan_fence.h"
 
-#include "core/application/application.h"
+#include "core/application.h"
 
-#include "core/logger/logger.h"
-#include "core/kstring/kstring.h"
-#include "core/kmemory/kmemory.h"
+#include "core/logger.h"
+#include "core/kstring.h"
+#include "core/kmemory.h"
 
 #include "core/containers/darray/darray.h"
 

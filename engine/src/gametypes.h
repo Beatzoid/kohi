@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/application/application.h"
+#include "core/application.h"
 
 /**
  * Represents the basic game state in a game.

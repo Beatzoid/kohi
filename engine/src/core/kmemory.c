@@ -1,8 +1,8 @@
 #include "kmemory.h"
 
-#include "core/logger/logger.h"
-#include "core/platform/platform.h"
-#include "core/kstring/kstring.h"
+#include "core/logger.h"
+#include "platform/platform.h"
+#include "core/kstring.h"
 
 #include <string.h>
 #include <stdio.h>

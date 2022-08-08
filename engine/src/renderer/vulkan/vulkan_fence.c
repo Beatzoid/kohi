@@ -1,6 +1,6 @@
 #include "vulkan_fence.h"
 
-#include "core/logger/logger.h"
+#include "core/logger.h"
 
 void vulkan_fence_create(
     vulkan_context *context,

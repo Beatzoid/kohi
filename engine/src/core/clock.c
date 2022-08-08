@@ -1,5 +1,5 @@
 #include "clock.h"
-#include "core/platform/platform.h"
+#include "platform/platform.h"
 
 void clock_update(clock *clock)
 {

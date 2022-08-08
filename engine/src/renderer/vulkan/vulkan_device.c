@@ -1,7 +1,7 @@
 #include "vulkan_device.h"
-#include "core/logger/logger.h"
-#include "core/kstring/kstring.h"
-#include "core/kmemory/kmemory.h"
+#include "core/logger.h"
+#include "core/kstring.h"
+#include "core/kmemory.h"
 #include "core/containers/darray/darray.h"
 
 typedef struct vulkan_physical_device_requirements

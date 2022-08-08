@@ -1,14 +1,14 @@
 #include "application.h"
 #include "gametypes.h"
 
-#include "core/platform/platform.h"
-#include "core/logger/logger.h"
-#include "core/kmemory/kmemory.h"
-#include "core/event/event.h"
-#include "core/input/input.h"
-#include "core/clock/clock.h"
+#include "platform/platform.h"
+#include "core/logger.h"
+#include "core/kmemory.h"
+#include "core/event.h"
+#include "core/input.h"
+#include "core/clock.h"
 
-#include "core/renderer/renderer_frontend.h"
+#include "renderer/renderer_frontend.h"
 
 typedef struct application_state
 {

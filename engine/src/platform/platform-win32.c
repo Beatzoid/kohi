@@ -2,10 +2,10 @@
 
 #if KPLATFORM_WINDOWS
 
-#include "core/logger/logger.h"
-#include "core/input/input.h"
+#include "core/logger.h"
+#include "core/input.h"
 #include "core/containers/darray/darray.h"
-#include "core/event/event.h"
+#include "core/event.h"
 
 #include <windows.h>
 #include <windowsx.h>
@@ -13,7 +13,7 @@
 
 #include <vulkan/vulkan.h>
 #include <vulkan/vulkan_win32.h>
-#include "core/renderer/vulkan/vulkan_types.inl"
+#include "renderer/vulkan/vulkan_types.inl"
 
 typedef struct internal_state
 {

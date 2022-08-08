@@ -1,5 +1,5 @@
 #include "vulkan_framebuffer.h"
-#include "core/kmemory/kmemory.h"
+#include "core/kmemory.h"
 
 void vulkan_framebuffer_create(
     vulkan_context *context,

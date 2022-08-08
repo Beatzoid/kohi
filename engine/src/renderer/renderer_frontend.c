@@ -1,8 +1,8 @@
 #include "renderer_frontend.h"
 #include "renderer_backend.h"
 
-#include "core/logger/logger.h"
-#include "core/kmemory/kmemory.h"
+#include "core/logger.h"
+#include "core/kmemory.h"
 
 struct renderer_backend *backend = 0;
 

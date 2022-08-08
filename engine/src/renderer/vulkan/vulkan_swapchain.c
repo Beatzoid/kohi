@@ -1,7 +1,7 @@
 #include "vulkan_swapchain.h"
 
-#include "core/logger/logger.h"
-#include "core/kmemory/kmemory.h"
+#include "core/logger.h"
+#include "core/kmemory.h"
 #include "vulkan_device.h"
 #include "vulkan_image.h"
 

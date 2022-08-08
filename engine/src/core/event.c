@@ -1,6 +1,6 @@
 #include "event.h"
 
-#include "core/kmemory/kmemory.h"
+#include "core/kmemory.h"
 #include "core/containers/darray/darray.h"
 
 typedef struct registered_event

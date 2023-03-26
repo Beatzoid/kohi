@@ -1,0 +1,15 @@
+{
+    "cSpell.words": [
+        "egor",
+        "humbletim",
+        "KAPI",
+        "Kohi",
+        "KPLATFORM",
+        "tensin",
+        "vulkan"
+    ],
+    "files.associations": {
+        "*.css": "css",
+        "test.h": "c"
+    }
+}

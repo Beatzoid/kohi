@@ -24,4 +24,4 @@ jobs:
               uses: egor-tensin/setup-clang@v1
 
             - name: Build Windows
-              run: mkdir bin && cd scripts && ./build-all.bat
+              run: mkdir bin && ./build-all.bat
